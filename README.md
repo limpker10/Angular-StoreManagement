@@ -1,4 +1,5 @@
-# StoreManager
+# Angular-StoreManagement
+Store management, for the management of sales, stock and warehouse of products, control of image and presence of the product in the store and supervision of staff
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
 
