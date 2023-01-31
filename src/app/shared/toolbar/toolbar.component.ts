@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
+  @Output() toggleNavbar = new EventEmitter<boolean>();
 
+  private isToggle = false
+  
+  toggle() : void {
+    this.isToggle = !this.isToggle
+    this.toggleNavbar.emit(this.isToggle)
+  }
 }
