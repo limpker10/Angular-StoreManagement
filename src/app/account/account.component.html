@@ -1,9 +1,38 @@
-<form [formGroup]="formLogin" (submit)="send()">
-  <input type="email" name="email" placeholder="email" formControlName="email">
-  <input type="password" placeholder="password" formControlName="password">
-  <div>
-    <button type="submit" [disabled]="!formLogin.valid">
-      Send
-    </button>
-  </div>
-</form>
+<div class="wrapper-form">
+  <form [formGroup]="formLogin" (submit)="send()" class="container-form">
+    <!-- <input type="email" name="email" placeholder="email" formControlName="email"> -->
+
+    <!-- Input Email -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput  placeholder="Ex. pat@example.com" formControlName="email">
+      <mat-error *ngIf="formLogin.get('email')!.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formLogin.get('email')!.hasError('email') && !formLogin.get('email')!.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+
+    </mat-form-field>
+    
+    <!-- Input Password -->
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+      <mat-error *ngIf="formLogin.get('password')!.hasError('required')">
+        password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formLogin.get('password')!.hasError('minlength') && !formLogin.get('password')!.hasError('required')">
+        Please enter a valid password
+      </mat-error>  
+    </mat-form-field> 
+    
+    <!-- Submit -->  
+    <div class="button-form">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formLogin.valid">
+        Send
+      </button>
+    </div>
+    
+  </form>
+</div>

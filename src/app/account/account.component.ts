@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AccountComponent implements OnInit {
   
   public formLogin: FormGroup;
-
+  
   constructor(private formBuilder:FormBuilder){
     this.formLogin = this.formBuilder.group({
       email : ['',[Validators.required,Validators.email]],
